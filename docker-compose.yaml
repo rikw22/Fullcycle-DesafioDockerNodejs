@@ -13,6 +13,9 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    volumes:
+      - ./src:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
     
   db:
     image: mysql:5.7
@@ -41,6 +44,10 @@ services:
       - "8080:80"
     depends_on:
       - app
+
+
+volumes:
+  node_modules:
 
 networks:
   node-network:
